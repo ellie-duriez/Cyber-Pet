@@ -1,3 +1,4 @@
+// GETTING / DEFINING ELEMENTS
 const dog = document.querySelector("#puppy");
 const cat = document.querySelector("#kitten");
 const squirrel1 = document.querySelector("#squirrel");
@@ -14,12 +15,13 @@ const drinking = document.querySelector("drinking");
 let pet;
 let petName;
 
-
+//PET SELECTION
 dog.addEventListener("click", () => {
     image1.src = "./images/puppy.png"
     pet = new Puppy(petName);
 })
 
+//GAMEPLAY
 feeding.addEventListener("click", () => {
     state.style.display = "block";
     pet.feed();
@@ -34,3 +36,12 @@ drinking.addEventListener("click", () => {
     state.style.display = "block";
     pet.drink();
 })
+
+// PAGE FUNCTIONALITY
+drinking.addEventListener("click", () => {
+    state.style.display = "block";
+    pet.drink();
+})
+
+
+

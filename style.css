@@ -1,10 +1,14 @@
-/* TEST */
-
+/* COMMON STYLES */
 body {
     background:
     linear-gradient(to right, #5bccf6, #fcde67)
 }
 
+button {
+    margin: 5px;
+}
+
+/* SELECTION PAGE / EXCLUSIVE TO INDEX.HTML*/
 .imageContainer {
     display: flex;
     justify-content: center;
@@ -37,16 +41,38 @@ img {
     cursor: pointer;
 }
 
-button {
-    display: flexbox;
-    justify-content: space-around;
-    margin-left: 150px;
-}
-
 #play-again {
-    display: flexbox;
+    display: flex;
     justify-content: center;
     margin-top: 100px;
     cursor: pointer;
 }
 
+/* MAIN GAME PAGE */
+
+#mainPetWrapper {
+    margin: 20px, 0px;
+    border: solid red 5px;
+    display: flex;
+    align-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#mainPetImage {
+    width: 250px;
+    height: 250px;
+    border: #fcde67 dashed 10px;
+    background-color: aqua;
+    background-image: none;
+}
+
+#careButtons {
+    border: #5bccf6 solid 3px;
+    text-align: center;
+}
+
+#functionalityButtons {
+    border: #5bccf6 solid 2px;
+    text-align: center;
+}
