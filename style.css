@@ -1,0 +1,51 @@
+body {
+    background:
+    linear-gradient(to right, #5bccf6, #fcde67)
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    padding: 2%;
+}
+
+img {
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 2em ;
+}
+
+.animal {
+    transition: transform 300ms;
+}
+
+.puppy:hover {
+    transform: rotate(30deg);
+    cursor: pointer
+}
+
+.kitten:hover {
+    transform: rotate(30deg);
+    cursor: pointer;
+}
+
+.squirrel:hover {
+    transform: rotate(30deg);
+    cursor: pointer;
+}
+
+button {
+    display: flexbox;
+    justify-content: space-around;
+    margin-left: 150px;
+}
+
+#play-again {
+    display: flexbox;
+    justify-content: center;
+    margin-top: 100px;
+    cursor: pointer;
+
+}
+
