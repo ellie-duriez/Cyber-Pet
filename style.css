@@ -23,21 +23,21 @@ img {
 }
 
 .animal {
-    transition: transform 300ms;
+    transition: transform 600ms;
 }
 
 .puppy:hover {
-    transform: rotate(30deg);
+    transform: rotate(360deg);
     cursor: pointer
 }
 
 .kitten:hover {
-    transform: rotate(30deg);
+    transform: rotate(360deg);
     cursor: pointer;
 }
 
 .squirrel:hover {
-    transform: rotate(30deg);
+    transform: rotate(360deg);
     cursor: pointer;
 }
 
@@ -86,8 +86,12 @@ img {
     padding: 10px;
 }
 
+.state{
+    display: none;
+    font-style: normal;
+}
 #statusFlexWrapper p {
-    width: 30%;
+    width: 20%;
     box-sizing: border-box;
 }
 
@@ -101,10 +105,13 @@ img {
     top: 17px;
 }
 
+.stylise {
+    font-style: italic;
+}
+
 /* nb. to change bar graphic, in the js simple, change style.width to 'x'% for each id detailed below, as required */
 #hungerBar, #playBar, #thirstBar {
     width: 100%;
     height: 100%;
     background-color: rgb(195, 25, 25);
 }
-

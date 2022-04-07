@@ -11,28 +11,29 @@
 
     <div id = mainPetFlexWrapper>
 
-        <div><span id="petNameHeader">Name</span>
+        <div><span id="petNameHeader"></span>
         </div>
 
         <div id="mainPetImage">
         </div>
-
+            <p><span class="stylise">Name: </span><span id="one-name"></span></p>
         <div id="careButtons">
             <button class = "hungerButton" id = "hunger-button">Feed</button>
             <button class = "playButton" id = "play-button">Play</button>
             <button class = "drinkButton" id = "drink-button">Drink</button>
         </div>
-
         <div id="statusFlexWrapper">
+            
             <p>Hunger: </p>
             <div class="statusContainer">
-                <div id="hungerBar"></div></div>
+                <progress id="hungerBar" max="10" value="3"></progress></div>
+                <p id = "state" class = "state"></p>
             <p>Boredom:</p>
             <div class="statusContainer">
-                <div id="playBar"></div></div>
+                <progress id="playBar" max="10" value="3"></progress></div>
             <p>Thirst: </p>
             <div class="statusContainer"> 
-                <div id="thirstBar"></div></div>
+                <progress id="thirstBar" max="10" value="3"></progress></div>
         </div>
 
         <div id="functionalityButtons">
