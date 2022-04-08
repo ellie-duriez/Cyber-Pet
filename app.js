@@ -69,7 +69,7 @@ class Fox extends Pet {
 
 }
 
-class bear extends Pet {
+class Bear extends Pet {
     constructor(name) {
        super(name)
     }
@@ -130,7 +130,7 @@ foxSelectorImage.addEventListener("click", () => {
     chosenPetObj = new Fox(name,"fox"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
     mainPetImage.style.backgroundImage = "url(./images/gifs/foxHappy.gif)";
     petName.innerText = chosenPetObj.name;
-    decreaseFed(chosenPetObj)
+    // decreaseFed(chosenPetObj)
 })
 
 pandaSelectorImage.addEventListener("click", () => {
@@ -146,7 +146,7 @@ bearSelectorImage.addEventListener("click", () => {
     homePage.style.display = "none"; // ERASES THE HOMEPAGE
     let name = window.prompt("Please pick the name of your new pet.");
     gamePage.removeAttribute("id") // MAKES THE GAMEPAGE SHOW
-    chosenPetObj = new Pet(name,"bear"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
+    chosenPetObj = new Bear(name,"bear"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
     mainPetImage.style.backgroundImage = "url(./images/gifs/bearHappy.gif)";
     petName.innerText = chosenPetObj.name;
 })
@@ -154,14 +154,19 @@ bearSelectorImage.addEventListener("click", () => {
 // INTERACT/CARE BUTTON FUNCTIONALITY
 feedButton.addEventListener("click", () => {
     fedBar.style.width = String(chosenPetObj.feed)+"%";
+    console.log("ok")
+    console.log(chosenPetObj.feed)
 })
 
 playButton.addEventListener("click", () => {
     entertainedBar.style.width = String(chosenPetObj.play)+"%";
+    console.log("ok")
+    console.log(chosenPetObj.quench)
 })
 
 drinkButton.addEventListener("click", () => {
     console.log("ok")
+    console.log(chosenPetObj.quench)
     quenchedBar.style.width = String(chosenPetObj.quench)+"%";
 })
 
