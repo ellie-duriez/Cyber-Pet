@@ -17,33 +17,86 @@ class Pet {
     _hunger = 50
     _thirst = 50
     _entertained = 50
+    
+}
 
+class Dog extends Pet {
+    constructor(name) {
+       super(name)
+    }
+    get play(){
+        const playVal = 15;
+        this._entertained += playVal;
+        return this._entertained
+        // state.textContent = "I love tennis balls so much!";
+    }
+    get quench(){
+        const quenchVal = 5;
+        this._thirst += quenchVal;
+        return this._thirst
+        // state.textContent = "I was really thirsty!";
+    }
     get feed(){
-        const feedVal = 10;
+        const feedVal = 8;
+        this._hunger += feedVal;
+        return this._hunger
+        // state.textContent = "OMG this tastes so good!";
+    }
+ }
+
+ class Cat extends Pet {
+    constructor(name) {
+       super(name)
+    }
+    get play(){
+        const playVal = 5;
+        this._entertained += playVal;
+        return this._entertained
+        // state.textContent = "I love tennis balls so much!";
+ }  
+    get quench(){
+        const quenchVal = 15;
+        this._thirst += quenchVal;
+        return this._thirst
+        // state.textContent = "I was really thirsty!";
+    }
+    get feed(){
+        const feedVal = 8;
         this._hunger += feedVal;
         return this._hunger
         // state.textContent = "OMG this tastes so good!";
     }
 
-    get quench(){
-        const quenchVal = 10;
-        this._thirst += quenchVal;
-        return this._thirst
-        // state.textContent = "I was really thirsty!";
-    }
+}
 
+class Squirrel extends Pet {
+    constructor(name) {
+       super(name)
+    }
     get play(){
         const playVal = 10;
         this._entertained += playVal;
         return this._entertained
         // state.textContent = "I love tennis balls so much!";
     }
-}
+    get quench(){
+        const quenchVal = 8;
+        this._thirst += quenchVal;
+        return this._thirst
+        // state.textContent = "I was really thirsty!";
+    }
+    get feed(){
+        const feedVal = 15;
+        this._hunger += feedVal;
+        return this._hunger
+        // state.textContent = "OMG this tastes so good!";
+    }
+ }
 
 // DEFINING ELEMENT... HOME/SELECTOR PAGE
 const catSelectorImage = document.getElementById("catSelectorImage");
 const dogSelectorImage = document.getElementById("dogSelectorImage");
-const squirrelSelectorImage = document.getElementById("SquirrelSelectorImage");
+const squirrelSelectorImage = document.getElementById("squirrelSelectorImage");
 const homePage = document.getElementById("homePage");
 
 // DEFINING ELEMENTS... MAIN GAME PAGE
@@ -62,13 +115,40 @@ const playButton = document.getElementById("playButton");
 
 let chosenPetObj //THIS WILL STORE THE INSTANCE OF PET THAT THE USER ENDS UP CHOOSING
 
+
+// const decreaseFed = () => {
+//     const id = setInterval(reduceBar, 1000);
+//     function reduceBar() {
+//        fedBar.Dog--;
+//     }
+//  };
+
 // SELECING THE PET / INITIALISING INSTANCE
 dogSelectorImage.addEventListener("click", () => {
     homePage.style.display = "none"; // ERASES THE HOMEPAGE
     let name = window.prompt("Please pick the name of your new pet.");
     gamePage.removeAttribute("id") // MAKES THE GAMEPAGE SHOW
-    chosenPetObj = new Pet(name,"dog"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
+    chosenPetObj = new Dog(name,"dog"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
     mainPetImage.style.backgroundImage = "url(./images/puppy.png)";
+    petName.innerText = chosenPetObj.name;
+    decreaseFed()
+})
+
+catSelectorImage.addEventListener("click", () => {
+    homePage.style.display = "none"; // ERASES THE HOMEPAGE
+    let name = window.prompt("Please pick the name of your new pet.");
+    gamePage.removeAttribute("id") // MAKES THE GAMEPAGE SHOW
+    chosenPetObj = new Cat(name,"cat"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
+    mainPetImage.style.backgroundImage = "url(./images/kitten.png)";
+    petName.innerText = chosenPetObj.name;
+})
+
+squirrelSelectorImage.addEventListener("click", () => {
+    homePage.style.display = "none"; // ERASES THE HOMEPAGE
+    let name = window.prompt("Please pick the name of your new pet.");
+    gamePage.removeAttribute("id") // MAKES THE GAMEPAGE SHOW
+    chosenPetObj = new Squirrel(name,"squirrel"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
+    mainPetImage.style.backgroundImage = "url(./images/squirrel.png)";
     petName.innerText = chosenPetObj.name;
 })
 
