@@ -1,7 +1,7 @@
 /* COMMON STYLES */
 body {
     background:
-    linear-gradient(to right, #5bccf6, #fcde67)
+    linear-gradient(to right, #5bccf6, #fcde67);
 }
 
 button {
@@ -9,49 +9,35 @@ button {
 }
 
 /* SELECTION PAGE / EXCLUSIVE TO INDEX.HTML*/
-.imageContainer {
+#homePage {
+    display: show;
+}
+
+#selectorImageContainer {
     display: flex;
     justify-content: center;
     margin: 5%;
     padding: 2%;
 }
 
-img {
+#dogSelectorImage, #catSelectorImage, #squirrelSelectorImage {
     width: 60%;
-    margin: 0 auto;
-    padding-bottom: 2em ;
+    transition: none;
 }
 
-.animal {
-    transition: transform 600ms;
-}
-
-.puppy:hover {
-    transform: rotate(360deg);
-    cursor: pointer
-}
-
-.kitten:hover {
-    transform: rotate(360deg);
+#dogSelectorImage:hover, #catSelectorImage:hover, #squirrelSelectorImage:hover {
+    transform: rotate(10deg);
     cursor: pointer;
-}
-
-.squirrel:hover {
-    transform: rotate(360deg);
-    cursor: pointer;
-}
-
-#play-again {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-    cursor: pointer;
+    transition: transform 500ms;
 }
 
 /* MAIN GAME PAGE / EXCLUSIVE TO GAME.HTML*/
+#gamePage {
+    display: none;
+}
+
 #mainPetFlexWrapper {
     margin: 20px, 0px;
-    border: solid red 5px;
     display: flex;
     align-content: space-around;
     flex-wrap: wrap;
@@ -61,29 +47,23 @@ img {
 #mainPetImage {
     width: 250px;
     height: 250px;
-    border: #fcde67 dashed 10px;
-    background-color: aqua;
+    
     background-image: none;
 }
 
-#careButtons {
-    border: #5bccf6 solid 3px;
-    text-align: center;
-}
-
 #functionalityButtons {
-    border: #5bccf6 solid 2px;
     text-align: center;
 }
 
 #statusFlexWrapper {
     background-color: gray;
-    border: red solid 3px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     text-align: center;
     padding: 10px;
+    border: solid black 3px;
+    border-radius: 40px;
 }
 
 .state{
@@ -91,18 +71,20 @@ img {
     font-style: normal;
 }
 #statusFlexWrapper p {
-    width: 20%;
+    width: 30%;
     box-sizing: border-box;
+    text-align: right;
 }
 
 .statusContainer {
     background-color: rgb(162, 162, 162);
-    border: green 2px solid;
     height: 20px;
-    width: 70%;
+    width: 60%;
     box-sizing: border-box;
     position: relative;
-    top: 17px;
+    top: 16px;
+    left: 10px;
+    border: black solid 1px;
 }
 
 .stylise {
@@ -113,5 +95,5 @@ img {
 #hungerBar, #playBar, #thirstBar {
     width: 100%;
     height: 100%;
-    background-color: rgb(195, 25, 25);
+    background-color: rgb(34, 239, 54);
 }

@@ -8,33 +8,58 @@
     <title>Cyber Pet</title>
 </head>
 <body>
-    <div class="together">
-        <header>
-            Cyber Pets
-        </header>
-        <main class = "content">
-            <div id="Homepage">
-                <h2>Welcome to our Cyber Pet simulator. Please select the desired animal.</h2>
-                <div class="imageContainer">
-                    <div class="image">
-                        <a href = "game.html"><img src="./images/kitten.png" alt="Kitten"
-                        id = "kitten" class= "animal kitten"></a>
-                    </div>
-                    <div class="image">
-                        <a href = "game.html"><img src="./images/puppy.png" alt="Puppy"
-                        id = "puppy" class = "animal puppy"></a>
-                    </div>
-                    <div class="image">
-                        <a href = "game.html"><img src="./images/squirrel.png" alt="Squirrel"
-                        id = "squirrel" class = "animal squirrel"></a>
-                    </div>
-                </div>
+    <!-- SELECTOR/HOME PAGE - INITIALLY VISABILITY == "SHOW", BUTAFTER SELECTION, VISABILITY == "NONE" -->
+    <div id="homePage">
+        <h1>Cyber Pets</h1>
+        <p>Welcome to our Cyber Pet simulator. Please select the desired animal.</p>
+
+        <div id="selectorImageContainer">
+            <div class="image">
+                <img id = "catSelectorImage" src="./images/kitten.png" alt="Cat">
             </div>
-        </main>
+            <div class="image">
+                <img id = "dogSelectorImage" src="./images/puppy.png" alt="Dog">
+            </div>
+            <div class="image">
+                <img id = "squirrelSelectorImage" src="./images/squirrel.png" alt="Squirrel">
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN GAME VISABILITY == 'NONE' INITIALLY, BUT BECOMES VISIBLE AFTER SELECTION -->
+    <div id="gamePage">
+        <div id = mainPetFlexWrapper>
+    
+            <span id="petName">Name</span>
+    
+            <div id="mainPetImage">
+            </div>
+    
+            <div id="functionalityButtons">
+                <button id = "hungerButton">Feed</button>
+                <button id = "playButton">Play</button>
+                <button id = "drinkButton">Drink</button>
+            </div>
+    
+            <div id="statusFlexWrapper">
+                <p>Hunger: </p>
+                <div class="statusContainer">
+                    <div id="hungerBar"></div></div>
+                <p>Boredom: </p>
+                <div class="statusContainer">
+                    <div id="playBar"></div></div>
+                <p>Thirst: </p>
+                <div class="statusContainer"> 
+                    <div id="thirstBar"></div></div>
+            </div>
+    
+            <div id="functionalityButtons">
+                <a href="index.html"><button id = "restartGameButton">Restart game</button></a>
+        </div>
     </div>
 
 <!-- SCRIPTS -->
-    <script async src="./app.js"></script>
-    <script async src="./classes.js"></script>
+    <script src="./classes.js"></script>
+    <script src="./app.js"></script>
 </body>
 </html>
