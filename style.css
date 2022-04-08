@@ -35,29 +35,29 @@ button {
     padding: 2%;
 }
 
-#dogSelectorImage, #catSelectorImage, #squirrelSelectorImage {
+#foxSelectorImage, #pandaSelectorImage, #bearSelectorImage {
     width: 60%;
     transition: none;    
     display: flex;
     justify-content: center;
 }
 
-#dogSelectorImage:hover, #catSelectorImage:hover, #squirrelSelectorImage:hover {
+#foxSelectorImage:hover, #pandaSelectorImage:hover, #bearSelectorImage:hover {
     transform: scale(1.5);
     cursor: pointer;
     transition: transform 500ms;
-
 }
 
-#petName {
-    font-size: 24px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
 
-}
 /* MAIN GAME PAGE / EXCLUSIVE TO GAME.HTML*/
 #gamePage {
     display: none;
+}
+
+#petName {
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 
 #mainPetFlexWrapper {
@@ -71,6 +71,7 @@ button {
 #mainPetImage {
     width: 250px;
     height: 250px;
+    background-size: contain;
     
     background-image: none;
 }
@@ -78,7 +79,6 @@ button {
 #functionalityButtons {
     text-align: center;
     font-family: 'Roboto', sans-serif;
-
 }
 
 #statusFlexWrapper {

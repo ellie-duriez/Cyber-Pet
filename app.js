@@ -20,7 +20,7 @@ class Pet {
     
 }
 
-class Dog extends Pet {
+class Fox extends Pet {
     constructor(name) {
        super(name)
     }
@@ -44,7 +44,7 @@ class Dog extends Pet {
     }
  }
 
- class Cat extends Pet {
+ class Panda extends Pet {
     constructor(name) {
        super(name)
     }
@@ -69,7 +69,7 @@ class Dog extends Pet {
 
 }
 
-class Squirrel extends Pet {
+class bear extends Pet {
     constructor(name) {
        super(name)
     }
@@ -94,9 +94,9 @@ class Squirrel extends Pet {
  }
 
 // DEFINING ELEMENT... HOME/SELECTOR PAGE
-const catSelectorImage = document.getElementById("catSelectorImage");
-const dogSelectorImage = document.getElementById("dogSelectorImage");
-const squirrelSelectorImage = document.getElementById("squirrelSelectorImage");
+const pandaSelectorImage = document.getElementById("pandaSelectorImage");
+const foxSelectorImage = document.getElementById("foxSelectorImage");
+const bearSelectorImage = document.getElementById("bearSelectorImage");
 const homePage = document.getElementById("homePage");
 
 // DEFINING ELEMENTS... MAIN GAME PAGE
@@ -115,40 +115,39 @@ const playButton = document.getElementById("playButton");
 
 let chosenPetObj //THIS WILL STORE THE INSTANCE OF PET THAT THE USER ENDS UP CHOOSING
 
-
-// const decreaseFed = () => {
-//     const id = setInterval(reduceBar, 1000);
-//     function reduceBar() {
-//        fedBar.Dog--;
-//     }
-//  };
+// function decreaseFed(pet){
+//     setInterval(() => {
+//         pet._hunger -= 10
+//         console.log(pet._hunger)
+//     }, 1000)
+// } 
 
 // SELECING THE PET / INITIALISING INSTANCE
-dogSelectorImage.addEventListener("click", () => {
+foxSelectorImage.addEventListener("click", () => {
     homePage.style.display = "none"; // ERASES THE HOMEPAGE
     let name = window.prompt("Please pick the name of your new pet.");
     gamePage.removeAttribute("id") // MAKES THE GAMEPAGE SHOW
-    chosenPetObj = new Dog(name,"dog"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
-    mainPetImage.style.backgroundImage = "url(./images/puppy.png)";
+    chosenPetObj = new Fox(name,"fox"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
+    mainPetImage.style.backgroundImage = "url(./images/gifs/foxHappy.gif)";
     petName.innerText = chosenPetObj.name;
-    decreaseFed()
+    decreaseFed(chosenPetObj)
 })
 
-catSelectorImage.addEventListener("click", () => {
+pandaSelectorImage.addEventListener("click", () => {
     homePage.style.display = "none"; // ERASES THE HOMEPAGE
     let name = window.prompt("Please pick the name of your new pet.");
     gamePage.removeAttribute("id") // MAKES THE GAMEPAGE SHOW
-    chosenPetObj = new Cat(name,"cat"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
-    mainPetImage.style.backgroundImage = "url(./images/kitten.png)";
+    chosenPetObj = new Panda(name,"panda"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
+    mainPetImage.style.backgroundImage = "url(./images/gifs/pandaHappy.gif)";
     petName.innerText = chosenPetObj.name;
 })
 
-squirrelSelectorImage.addEventListener("click", () => {
+bearSelectorImage.addEventListener("click", () => {
     homePage.style.display = "none"; // ERASES THE HOMEPAGE
     let name = window.prompt("Please pick the name of your new pet.");
     gamePage.removeAttribute("id") // MAKES THE GAMEPAGE SHOW
-    chosenPetObj = new Squirrel(name,"squirrel"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
-    mainPetImage.style.backgroundImage = "url(./images/squirrel.png)";
+    chosenPetObj = new Pet(name,"bear"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
+    mainPetImage.style.backgroundImage = "url(./images/gifs/bearHappy.gif)";
     petName.innerText = chosenPetObj.name;
 })
 
