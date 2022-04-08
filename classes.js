@@ -9,7 +9,7 @@
 
 //     get type(){
 //         return this._type;
-//     }
+//     } 
 
 //     get feed(){
 //         hungerBar.value += 2;

@@ -120,7 +120,7 @@ let chosenPetObj //THIS WILL STORE THE INSTANCE OF PET THAT THE USER ENDS UP CHO
 //         pet._hunger -= 10
 //         console.log(pet._hunger)
 //     }, 1000)
-// } 
+// }  
 
 // SELECING THE PET / INITIALISING INSTANCE
 foxSelectorImage.addEventListener("click", () => {
