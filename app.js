@@ -1,76 +1,3 @@
-class Fox extends Pet {
-    constructor(name) {
-       super(name)
-    }
-    get play(){
-        const playVal = 15;
-        this._entertained += playVal;
-        return this._entertained
-        // state.textContent = "I love tennis balls so much!";
-    }
-    get quench(){
-        const quenchVal = 5;
-        this._thirst += quenchVal;
-        return this._thirst
-        // state.textContent = "I was really thirsty!";
-    }
-    get feed(){
-        const feedVal = 8;
-        this._hunger += feedVal;
-        return this._hunger
-        // state.textContent = "OMG this tastes so good!";
-    }
- }
-
- class Panda extends Pet {
-    constructor(name) {
-       super(name)
-    }
-    get play(){
-        const playVal = 5;
-        this._entertained += playVal;
-        return this._entertained
-        // state.textContent = "I love tennis balls so much!";
- }  
-    get quench(){
-        const quenchVal = 15;
-        this._thirst += quenchVal;
-        return this._thirst
-        // state.textContent = "I was really thirsty!";
-    }
-    get feed(){
-        const feedVal = 8;
-        this._hunger += feedVal;
-        return this._hunger
-        // state.textContent = "OMG this tastes so good!";
-    }
-
-}
-
-class Bear extends Pet {
-    constructor(name) {
-       super(name)
-    }
-    get play(){
-        const playVal = 10;
-        this._entertained += playVal;
-        return this._entertained
-        // state.textContent = "I love tennis balls so much!";
-    }
-    get quench(){
-        const quenchVal = 8;
-        this._thirst += quenchVal;
-        return this._thirst
-        // state.textContent = "I was really thirsty!";
-    }
-    get feed(){
-        const feedVal = 15;
-        this._hunger += feedVal;
-        return this._hunger
-        // state.textContent = "OMG this tastes so good!";
-    }
- }
-
 // DEFINING ELEMENT... HOME/SELECTOR PAGE
 const pandaSelectorImage = document.getElementById("pandaSelectorImage");
 const foxSelectorImage = document.getElementById("foxSelectorImage");
@@ -81,6 +8,7 @@ const homePage = document.getElementById("homePage");
 const gamePage = document.getElementById("gamePage");
 
 const petName = document.getElementById("petName");
+
 const fedBar = document.getElementById("fedBar");
 const entertainedBar = document.getElementById("entertainedBar");
 const quenchedBar = document.getElementById("quenchedBar");
@@ -93,72 +21,60 @@ const playButton = document.getElementById("playButton");
 
 let chosenPetObj //THIS WILL STORE THE INSTANCE OF PET THAT THE USER ENDS UP CHOOSING
 
-// function decreaseFed(pet){
-//     setInterval(() => {
-//         pet._hunger -= 10
-//         console.log(pet._hunger)
-//     }, 1000)
-// }  
+// DEFINING FUNCTIONS
+const decreaseBarsFunc = (petInstance) => { 
+    console.log(petInstance) //for debugging
+    setInterval(() => {
+        petInstance.decreaseHunger
+        petInstance.decreaseThirst
+        petInstance.decreaseEntertained
+        console.log(petInstance._hunger) //for debugging
+        console.log(petInstance._thirst) //for debugging
+        console.log(petInstance._entertained) //for debugging
+        fedBar.style.width = String(petInstance._hunger)+"%";
+        quenchedBar.style.width = String(petInstance._thirst)+"%";
+        entertainedBar.style.width = String(petInstance._entertained)+"%";
+        }, 1500)
+}
 
-// SELECING THE PET / INITIALISING INSTANCE
-foxSelectorImage.addEventListener("click", () => {
+// SELECING THE PET / INITIALISING INSTANCE / STARTING THE GAME
+
+const initInstance = (petSubclass, petType) => // CREATES INSTANCE OF PET, AND KICKSTARTS THE GAME.
+{
     homePage.style.display = "none"; // ERASES THE HOMEPAGE
     let name = window.prompt("Please pick the name of your new pet.");
-    gamePage.removeAttribute("id") // MAKES THE GAMEPAGE SHOW
-    chosenPetObj = new Fox(name,"fox"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
-    mainPetImage.style.backgroundImage = "url(./images/gifs/foxHappy.gif)";
-    petName.innerText = chosenPetObj.name;
-    // decreaseFed(chosenPetObj)
-})
-
-pandaSelectorImage.addEventListener("click", () => {
-    homePage.style.display = "none"; // ERASES THE HOMEPAGE
-    let name = window.prompt("Please pick the name of your new pet.");
-    gamePage.removeAttribute("id") // MAKES THE GAMEPAGE SHOW
-    chosenPetObj = new Panda(name,"panda"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
-    mainPetImage.style.backgroundImage = "url(./images/gifs/pandaHappy.gif)";
-    petName.innerText = chosenPetObj.name;
-})
-
-bearSelectorImage.addEventListener("click", () => {
-    homePage.style.display = "none"; // ERASES THE HOMEPAGE
-    let name = window.prompt("Please pick the name of your new pet.");
-    gamePage.removeAttribute("id") // MAKES THE GAMEPAGE SHOW
-    chosenPetObj = new Bear(name,"bear"); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
-    mainPetImage.style.backgroundImage = "url(./images/gifs/bearHappy.gif)";
-    petName.innerText = chosenPetObj.name;
-})
+    gamePage.removeAttribute("id"); // MAKES THE GAMEPAGE SHOW
+    const chosenPetObj = new petSubclass(name,String(petType)); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
+    mainPetImage.style.backgroundImage = chosenPetObj.happyImg;
+    petName.innerText = chosenPetObj._name;
+    decreaseBarsFunc(chosenPetObj)
 
 // INTERACT/CARE BUTTON FUNCTIONALITY
 feedButton.addEventListener("click", () => {
+    console.log(chosenPetObj._hunger) //logging the current hunger for debugging purposes
     fedBar.style.width = String(chosenPetObj.feed)+"%";
-    console.log("ok")
-    console.log(chosenPetObj.feed)
 })
 
 playButton.addEventListener("click", () => {
+    console.log(chosenPetObj._entertained) //logging the current entertained for debugging purposes
     entertainedBar.style.width = String(chosenPetObj.play)+"%";
-    console.log("ok")
-    console.log(chosenPetObj.quench)
 })
 
 drinkButton.addEventListener("click", () => {
-    console.log("ok")
-    console.log(chosenPetObj.quench)
+    console.log(chosenPetObj._thirst) //logging the current thirst for debugging purposes
     quenchedBar.style.width = String(chosenPetObj.quench)+"%";
 })
+}
 
-// feeding.addEventListener("click", () => {
-//     state.style.display = "block";
-//     Pet.feed();
-// })
+//EVENT LISTENERS POINTING TO AN INITITIALISATION FUNCTION TO SETUP CHOSEN PET AND BEGIN GAMEPLAY
+foxSelectorImage.addEventListener("click", () => {
+    initInstance(Fox, "fox");
+})
 
-// playing.addEventListener("click", () => {
-//     state.style.display = "block";
-//     Pet.play();
-// })
+bearSelectorImage.addEventListener("click", () => {
+    initInstance(Bear, "bear");
+})
 
-// drinking.addEventListener("click", () => {
-//     state.style.display = "block";
-//     Pet.drink();
-// })
+pandaSelectorImage.addEventListener("click", () => {
+    initInstance(Panda, "panda");
+})
