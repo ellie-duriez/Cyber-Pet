@@ -23,12 +23,14 @@ const playButton = document.getElementById("playButton");
 let name = 0
 
 // DEFINING FUNCTIONS
+
 const decreaseBarsFunc = (petInstance) => { 
     console.log(petInstance) //for debugging
     setInterval(() => {
         petInstance.decreaseHunger
         petInstance.decreaseThirst
         petInstance.decreaseEntertained
+        BarMinRuleFunc(petInstance)
         console.log(petInstance._hunger) //for debugging
         console.log(petInstance._thirst) //for debugging
         console.log(petInstance._entertained) //for debugging
@@ -36,6 +38,18 @@ const decreaseBarsFunc = (petInstance) => {
         quenchedBar.style.width = String(petInstance._thirst)+"%";
         entertainedBar.style.width = String(petInstance._entertained)+"%";
         }, 1500)
+    }
+
+const BarMinRuleFunc = (petInstance) => {
+    if (petInstance._hunger < 0) {
+        petInstance._hunger = 0
+    }
+    if (petInstance._thirst < 0) {
+        petInstance._thirst = 0
+    }
+    if (petInstance._entertained < 0) {
+        petInstance._entertained = 0
+    }
 }
 
 // SELECING THE PET / INITIALISING INSTANCE / STARTING THE GAME
@@ -58,16 +72,25 @@ const initInstance = (petSubclass, petType) => // CREATES INSTANCE OF PET, AND K
 
 // INTERACT/CARE BUTTON FUNCTIONALITY
 feedButton.addEventListener("click", () => {
+    if (chosenPetObj._hunger >= 101) {
+        chosenPetObj._hunger = 100;
+        return}
     console.log(chosenPetObj._hunger) //logging the current hunger for debugging purposes
     fedBar.style.width = String(chosenPetObj.feed)+"%";
 })
 
 playButton.addEventListener("click", () => {
+    if (chosenPetObj._entertained >= 101) {
+        chosenPetObj._entertained = 100;
+        return}
     console.log(chosenPetObj._entertained) //logging the current entertained for debugging purposes
     entertainedBar.style.width = String(chosenPetObj.play)+"%";
 })
 
 drinkButton.addEventListener("click", () => {
+    if (chosenPetObj._thirst >= 101) {
+        chosenPetObj._thirst = 100;
+        return}
     console.log(chosenPetObj._thirst) //logging the current thirst for debugging purposes
     quenchedBar.style.width = String(chosenPetObj.quench)+"%";
 })

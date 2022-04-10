@@ -53,6 +53,9 @@ class Fox extends Pet {
 
     happyImg = "url(./images/gifs/FoxHappy.gif";
     sadImg = "url(./images/gifs/FoxSad.gif";
+    _playVal = 5;
+    _quenchVal = 10;
+    _feedVal = 15;
 
     constructor(name, type) {
        super(name, type);
@@ -64,6 +67,9 @@ class Fox extends Pet {
 
     happyImg = "url(./images/gifs/BearHappy.gif";
     sadImg = "url(./images/gifs/BearSad.gif";
+    _playVal = 15;
+    _quenchVal = 5;
+    _feedVal = 10;
 
     constructor(name, type) {
        super(name, type)
@@ -74,6 +80,9 @@ class Fox extends Pet {
 
     happyImg = "url(./images/gifs/PandaHappy.gif";
     sadImg = "url(./images/gifs/PandaSad.gif";
+    _playVal = 10;
+    _quenchVal = 15;
+    _feedVal = 5;
 
     constructor(name, type) {
        super(name, type)
