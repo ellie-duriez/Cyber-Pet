@@ -23,7 +23,6 @@ const playButton = document.getElementById("playButton");
 let name = 0
 
 // DEFINING FUNCTIONS
-
 const decreaseBarsFunc = (petInstance) => { 
     console.log(petInstance) //for debugging
     fedBar.style.width = String(petInstance._hunger)+"%";
@@ -53,23 +52,26 @@ const BarMinRuleFunc = (petInstance) => {
 }
 
 // SELECING THE PET / INITIALISING INSTANCE / STARTING THE GAME
-
 const initInstance = (petSubclass, petType) => // CREATES INSTANCE OF PET, AND KICKSTARTS THE GAME.
 {
     let name = window.prompt("Your new pet's name:");
+    console.log(typeof name)
 
     while (name.length < 1) {
         name = window.prompt("Please choose a valid name:");
         }
     if (name == null) {
             return }
+
     homePage.style.display = "none"; // ERASES THE HOMEPAGE
     gamePage.removeAttribute("id"); // MAKES THE GAMEPAGE SHOW
+    name = name.toLowerCase();
+    const firstLetterOfName = name.charAt(0).toUpperCase();
+    name = firstLetterOfName + name.slice(1);
     const chosenPetObj = new petSubclass(name,String(petType)); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
     decreaseBarsFunc(chosenPetObj)
     mainPetImage.style.backgroundImage = chosenPetObj.happyImg;
-    petName.innerText = chosenPetObj._name;
-    
+    petName.innerText = `${chosenPetObj._name} the ${chosenPetObj._type}`;
 
 // INTERACT/CARE BUTTON FUNCTIONALITY
 feedButton.addEventListener("click", () => {
