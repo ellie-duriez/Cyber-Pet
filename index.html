@@ -11,18 +11,11 @@
     <!-- SELECTOR/HOME PAGE - INITIALLY VISABILITY == "SHOW", BUTAFTER SELECTION, VISABILITY == "NONE" -->
     <div id="homePage">
         <h1>Pixelpets</h1>
-        <p>Select your pet:</p>
-
+        <span>Choose a pet:</span>
         <div id="selectorImageContainer">
-            <div class="image">
                 <img id = "pandaSelectorImage" src="./images/headShots/panda.png" alt="">
-            </div>
-            <div class="image">
                 <img id = "foxSelectorImage" src="./images/headShots/fox.png" alt="">
-            </div>
-            <div class="image">
                 <img id = "bearSelectorImage" src="./images/headShots/bear.png" alt="">
-            </div>
         </div>
     </div>
 
@@ -34,13 +27,15 @@
     
             <div id="mainPetImage">
             </div>
-    
+
+            <div id="functionalityButtons"></div>
             <div id="functionalityButtons">
                 <button id = "feedButton">Feed</button>
                 <button id = "playButton">Play</button>
                 <button id = "drinkButton">Drink</button>
             </div>
-    
+            </div>
+            
             <div id="statusFlexWrapper">
                 <p>Fed: </p>
                 <div class="statusContainer">
@@ -52,9 +47,10 @@
                 <div class="statusContainer"> 
                     <div id="quenchedBar"></div></div>
             </div>
-    
-            <div id="functionalityButtons">
-                <a href="index.html"><button id = "restartGameButton">Restart game</button></a>
+            
+            
+            <a href="index.html"><button id = "restartGameButton">Restart game</button></a>
+
         </div>
     </div>
 

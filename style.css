@@ -5,18 +5,18 @@ body {
     linear-gradient(to right, #5bccf6, #fcde67);
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    justify-content: center;
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
     font-family: 'Roboto', sans-serif;
     font-size: 50px;
+    text-align: center;
 }
-p {
-    display: flex;
-    justify-content: center;
+span {
     font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 
 button {
@@ -25,21 +25,25 @@ button {
 
 /* SELECTION PAGE / EXCLUSIVE TO INDEX.HTML*/
 #homePage {
-    display: show;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 #selectorImageContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
     margin: 8%;
     padding: 2%;
+    
 }
 
 #foxSelectorImage, #pandaSelectorImage, #bearSelectorImage {
-    width: 60%;
-    transition: none;    
-    display: flex;
-    justify-content: center;
+    width: 20%;
+    position: relative;
+    top: -30px;
 }
 
 #foxSelectorImage:hover, #pandaSelectorImage:hover, #bearSelectorImage:hover {
@@ -59,12 +63,15 @@ button {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     text-align: center;
+    position: relative;
+    top: 10px;
 }
 
 #mainPetFlexWrapper {
     margin: 20px, 0px;
     display: flex;
     align-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     flex-direction: column;
 }
@@ -81,6 +88,20 @@ button {
     font-family: 'Roboto', sans-serif;
 }
 
+#feedButton, #playButton, #drinkButton {
+    width: 70px;
+    height: 30px;
+    border: blue solid 1px;
+    background-color: white;
+    border-radius: 30%;
+}
+
+#feedButton:hover, #playButton:hover, #drinkButton:hover {
+    border: blue solid 1px;
+    background-color: rgba(255, 255, 255, 0.717);
+    border: blue solid 2px;
+}
+
 #statusFlexWrapper {
     background-color: gray;
     display: flex;
@@ -89,13 +110,13 @@ button {
     align-items: center;
     padding: 10px;
     border: solid rgb(28, 51, 184) 3px;
-    border-radius: 40px;
+    border-radius: 15px;
 }
 
 .state{
-    display: none;
     font-style: normal;
 }
+
 #statusFlexWrapper p {
     width: 40%;
     box-sizing: border-box;
@@ -106,12 +127,11 @@ button {
 
 .statusContainer {
     background-color: whitesmoke;
-    height: 20px;
-    width: 55%;
-    left: 5px;
+    height: 29px;
+    width: 60%;
     box-sizing: border-box;
-    position: relative;
-    border: black solid 1px;
+    border: rgb(28,51,184) solid 2px;
+    border-radius: 5%;
 }
 
 .stylise {
@@ -120,8 +140,20 @@ button {
 
 /* nb. to change bar graphic, in the js simple, change style.width to 'x'% for each id detailed below, as required */
 #fedBar, #entertainedBar, #quenchedBar {
-    width: 50%;
+    width: 0%;
     max-width: 100%;
-    height: 100%;
+    height: 23px;
+    margin-top: 1px;
     background-color: rgb(28, 51, 184);
+}
+
+#restartGameButton {
+    font-size: 10px;
+    font-weight: 900;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.871);
+    width: 100px;
+    margin-left: 30%;
+    
+    border: rgb(28,51,184) solid 2px;
 }

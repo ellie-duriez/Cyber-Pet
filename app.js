@@ -26,17 +26,17 @@ let name = 0
 
 const decreaseBarsFunc = (petInstance) => { 
     console.log(petInstance) //for debugging
+    fedBar.style.width = String(petInstance._hunger)+"%";
+    quenchedBar.style.width = String(petInstance._thirst)+"%";
+    entertainedBar.style.width = String(petInstance._entertained)+"%";
     setInterval(() => {
         petInstance.decreaseHunger
         petInstance.decreaseThirst
         petInstance.decreaseEntertained
-        BarMinRuleFunc(petInstance)
-        console.log(petInstance._hunger) //for debugging
-        console.log(petInstance._thirst) //for debugging
-        console.log(petInstance._entertained) //for debugging
         fedBar.style.width = String(petInstance._hunger)+"%";
         quenchedBar.style.width = String(petInstance._thirst)+"%";
         entertainedBar.style.width = String(petInstance._entertained)+"%";
+        BarMinRuleFunc(petInstance)
         }, 1500)
     }
 
@@ -66,9 +66,10 @@ const initInstance = (petSubclass, petType) => // CREATES INSTANCE OF PET, AND K
     homePage.style.display = "none"; // ERASES THE HOMEPAGE
     gamePage.removeAttribute("id"); // MAKES THE GAMEPAGE SHOW
     const chosenPetObj = new petSubclass(name,String(petType)); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
+    decreaseBarsFunc(chosenPetObj)
     mainPetImage.style.backgroundImage = chosenPetObj.happyImg;
     petName.innerText = chosenPetObj._name;
-    decreaseBarsFunc(chosenPetObj)
+    
 
 // INTERACT/CARE BUTTON FUNCTIONALITY
 feedButton.addEventListener("click", () => {
