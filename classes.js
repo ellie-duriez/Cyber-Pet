@@ -2,9 +2,9 @@ class Pet {
     _playVal = 10;
     _quenchVal = 10;
     _feedVal = 10;
-    _thirst = 50;
-    _entertained = 50;
-    _hunger = 50;
+    _thirst = Math.floor(Math.random()*100);
+    _entertained = Math.floor(Math.random()*100);
+    _hunger = Math.floor(Math.random()*100);
 
     constructor(name, type){
         this._name = name;
