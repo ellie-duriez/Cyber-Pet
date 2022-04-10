@@ -19,7 +19,8 @@ const feedButton = document.getElementById("feedButton");
 const drinkButton = document.getElementById("drinkButton");
 const playButton = document.getElementById("playButton");
 
-let chosenPetObj //THIS WILL STORE THE INSTANCE OF PET THAT THE USER ENDS UP CHOOSING
+//THIS WILL STORE THE INSTANCE OF PET THAT THE USER ENDS UP CHOOSING
+let name = 0
 
 // DEFINING FUNCTIONS
 const decreaseBarsFunc = (petInstance) => { 
@@ -41,8 +42,14 @@ const decreaseBarsFunc = (petInstance) => {
 
 const initInstance = (petSubclass, petType) => // CREATES INSTANCE OF PET, AND KICKSTARTS THE GAME.
 {
+    let name = window.prompt("Your new pet's name:");
+
+    while (name.length < 1) {
+        name = window.prompt("Please choose a valid name:");
+        }
+    if (name == null) {
+            return }
     homePage.style.display = "none"; // ERASES THE HOMEPAGE
-    let name = window.prompt("Please pick the name of your new pet.");
     gamePage.removeAttribute("id"); // MAKES THE GAMEPAGE SHOW
     const chosenPetObj = new petSubclass(name,String(petType)); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
     mainPetImage.style.backgroundImage = chosenPetObj.happyImg;
@@ -64,6 +71,7 @@ drinkButton.addEventListener("click", () => {
     console.log(chosenPetObj._thirst) //logging the current thirst for debugging purposes
     quenchedBar.style.width = String(chosenPetObj.quench)+"%";
 })
+
 }
 
 //EVENT LISTENERS POINTING TO AN INITITIALISATION FUNCTION TO SETUP CHOSEN PET AND BEGIN GAMEPLAY
