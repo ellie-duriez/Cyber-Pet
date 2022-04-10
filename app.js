@@ -23,19 +23,50 @@ const playButton = document.getElementById("playButton");
 let name = 0
 
 // DEFINING FUNCTIONS
+const checkHappiness = (petInstance) => {
+    if (petInstance._hunger < 10) {
+        petInstance.sad
+        mainPetImage.style.backgroundImage = petInstance.sadImg;
+    }
+
+    if (petInstance._thirst < 10) {
+        petInstance.sad
+        mainPetImage.style.backgroundImage = petInstance.sadImg;
+    }
+
+    if (petInstance._thirst < 10) {
+        petInstance.sad
+        mainPetImage.style.backgroundImage = petInstance.sadImg;
+    }
+
+    else if (petInstance._hunger+petInstance._thirst+petInstance._entertained < 150) {
+        petInstance.sad
+        mainPetImage.style.backgroundImage = petInstance.sadImg;
+    } else {
+        petInstance.happy
+        mainPetImage.style.backgroundImage = petInstance.happyImg;
+    }
+}
+
 const decreaseBarsFunc = (petInstance) => { 
-    console.log(petInstance) //for debugging
+    console.log(petInstance._hunger+petInstance._thirst+petInstance._entertained)
+    // console.log(petInstance) //for debugging
+    console.log(petInstance._happy)
+    checkHappiness(petInstance)
     fedBar.style.width = String(petInstance._hunger)+"%";
     quenchedBar.style.width = String(petInstance._thirst)+"%";
     entertainedBar.style.width = String(petInstance._entertained)+"%";
     setInterval(() => {
         petInstance.decreaseHunger
+        console.log(petInstance._happy)
+        console.log(petInstance._hunger+petInstance._thirst+petInstance._entertained)
         petInstance.decreaseThirst
         petInstance.decreaseEntertained
         fedBar.style.width = String(petInstance._hunger)+"%";
         quenchedBar.style.width = String(petInstance._thirst)+"%";
         entertainedBar.style.width = String(petInstance._entertained)+"%";
         BarMinRuleFunc(petInstance)
+        checkHappiness(petInstance)
         }, 1500)
     }
 
@@ -50,6 +81,8 @@ const BarMinRuleFunc = (petInstance) => {
         petInstance._entertained = 0
     }
 }
+
+
 
 // SELECING THE PET / INITIALISING INSTANCE / STARTING THE GAME
 const initInstance = (petSubclass, petType) => // CREATES INSTANCE OF PET, AND KICKSTARTS THE GAME.
@@ -70,7 +103,6 @@ const initInstance = (petSubclass, petType) => // CREATES INSTANCE OF PET, AND K
     name = firstLetterOfName + name.slice(1);
     const chosenPetObj = new petSubclass(name,String(petType)); // CREATES A PET OBJ INSTANCE WITH NAME AND TYPE
     decreaseBarsFunc(chosenPetObj)
-    mainPetImage.style.backgroundImage = chosenPetObj.happyImg;
     petName.innerText = `${chosenPetObj._name} the ${chosenPetObj._type}`;
 
 // INTERACT/CARE BUTTON FUNCTIONALITY

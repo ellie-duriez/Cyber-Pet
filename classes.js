@@ -5,6 +5,7 @@ class Pet {
     _thirst = Math.floor(Math.random()*100);
     _entertained = Math.floor(Math.random()*100);
     _hunger = Math.floor(Math.random()*100);
+    _happy = true;
 
     constructor(name, type){
         this._name = name;
@@ -45,6 +46,16 @@ class Pet {
     get decreaseEntertained(){
         this._entertained--;
         return this._entertained;
+    }
+
+    get happy(){
+        this._happy = true;
+        return this._happy;
+    }
+
+    get sad(){
+        this._happy = false;
+        return this._happy;
     }
 
 }
