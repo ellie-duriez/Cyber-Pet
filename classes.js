@@ -62,8 +62,8 @@ class Pet {
 
 class Fox extends Pet {
 
-    happyImg = "url(./images/gifs/FoxHappy.gif";
-    sadImg = "url(./images/gifs/FoxSad.gif";
+    happyImg = "url(./images/gifs/foxHappy.gif";
+    sadImg = "url(./images/gifs/foxSad.gif";
     _playVal = 5;
     _quenchVal = 10;
     _feedVal = 15;
@@ -76,8 +76,8 @@ class Fox extends Pet {
 
  class Bear extends Pet {
 
-    happyImg = "url(./images/gifs/BearHappy.gif";
-    sadImg = "url(./images/gifs/BearSad.gif";
+    happyImg = "url(./images/gifs/bearHappy.gif";
+    sadImg = "url(./images/gifs/bearSad.gif";
     _playVal = 15;
     _quenchVal = 5;
     _feedVal = 10;
