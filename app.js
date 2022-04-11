@@ -97,8 +97,6 @@ const BarMinRuleFunc = (petInstance) => {
     }
 }
 
-
-
 // SELECING THE PET / INITIALISING INSTANCE / STARTING THE GAME
 const initInstance = (petSubclass, petType) => // CREATES INSTANCE OF PET, AND KICKSTARTS THE GAME.
 {
