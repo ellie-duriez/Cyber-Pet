@@ -141,7 +141,7 @@ button {
     font-style: italic;
 }
 
-/* nb. to change bar graphic, in the js simple, change style.width to 'x'% for each id detailed below, as required */
+/* nb. to change bar graphic, in the js simple, change style.width to 'x'% for each id detailed below, as required */ 
 #fedBar, #entertainedBar, #quenchedBar {
     width: 0%;
     max-width: 100%;

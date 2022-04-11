@@ -20,7 +20,7 @@ class Pet {
     get play(){
         this._entertained += this._playVal;
         return this._entertained;
-        // state.textContent = "I love tennis balls so much!";
+        // state.textContent = "I love tennis balls so much!"; 
     }
     get quench(){
         this._thirst += this._quenchVal;
