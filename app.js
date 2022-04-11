@@ -6,8 +6,8 @@ const homePage = document.getElementById("homePage");
 
 // DEFINING ELEMENTS... MAIN GAME PAGE
 const gamePage = document.getElementById("gamePage");
-
 const petName = document.getElementById("petName");
+const state = document.getElementById("state")
 
 const fedBar = document.getElementById("fedBar");
 const entertainedBar = document.getElementById("entertainedBar");
@@ -25,26 +25,41 @@ let name = 0
 // DEFINING FUNCTIONS
 const checkHappiness = (petInstance) => {
     if (petInstance._hunger < 10) {
-        petInstance.sad
+        petInstance.sad; //DOESN'T DO A LOT RIGHT NOW BUT MAY USE FOR A LATER FEATURE
         mainPetImage.style.backgroundImage = petInstance.sadImg;
+        state.innerHTML = "is starving!";
     }
 
-    if (petInstance._thirst < 10) {
-        petInstance.sad
+    else if (petInstance._thirst < 10) {
+        petInstance.sad; //DOESN'T DO A LOT RIGHT NOW BUT MAY USE FOR A LATER FEATURE
         mainPetImage.style.backgroundImage = petInstance.sadImg;
+        state.innerHTML = "is so thirsy!";
     }
 
-    if (petInstance._thirst < 10) {
-        petInstance.sad
+    else if (petInstance._entertained < 10) {
+        petInstance.sad; //DOESN'T DO A LOT RIGHT NOW BUT MAY USE FOR A LATER FEATURE
         mainPetImage.style.backgroundImage = petInstance.sadImg;
+        state.innerHTML = "is really bored.";
     }
-
-    else if (petInstance._hunger+petInstance._thirst+petInstance._entertained < 150) {
-        petInstance.sad
-        mainPetImage.style.backgroundImage = petInstance.sadImg;
-    } else {
-        petInstance.happy
+    else if (petInstance._hunger+petInstance._thirst+petInstance._entertained < 100) {
+            petInstance.sad;
+            mainPetImage.style.backgroundImage = petInstance.sadImg;
+            state.innerHTML = "is feeling neglected.";
+    }
+    else if (petInstance._hunger+petInstance._thirst+petInstance._entertained < 175){
+        petInstance.happy;
         mainPetImage.style.backgroundImage = petInstance.happyImg;
+        state.innerHTML = "is content.";
+    }
+    else if (petInstance._hunger+petInstance._thirst+petInstance._entertained > 275){
+        petInstance.happy;
+        mainPetImage.style.backgroundImage = petInstance.happyImg;
+        state.innerHTML = "is absolutely elated!";
+    }
+    else{
+        petInstance.happy;
+        mainPetImage.style.backgroundImage = petInstance.happyImg;
+        state.innerHTML = "is feeling happy!";
     }
 }
 
@@ -90,7 +105,7 @@ const initInstance = (petSubclass, petType) => // CREATES INSTANCE OF PET, AND K
     let name = window.prompt("Your new pet's name:");
     console.log(typeof name)
 
-    while (name.length < 1) {
+    while (name.length < 1 || name == " ") {
         name = window.prompt("Please choose a valid name:");
         }
     if (name == null) {
@@ -138,7 +153,7 @@ foxSelectorImage.addEventListener("click", () => {
 })
 
 bearSelectorImage.addEventListener("click", () => {
-    initInstance(Bear, "bear");
+    initInstance(Bear, "polarbear");
 })
 
 pandaSelectorImage.addEventListener("click", () => {

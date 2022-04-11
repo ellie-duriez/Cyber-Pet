@@ -62,7 +62,6 @@ button {
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    text-align: center;
     position: relative;
     top: 10px;
 }
@@ -71,16 +70,17 @@ button {
     margin: 20px, 0px;
     display: flex;
     align-content: space-around;
-    justify-content: center;
-    flex-wrap: wrap;
     flex-direction: column;
+    text-align: center;
 }
 
 #mainPetImage {
     width: 250px;
     height: 250px;
     background-size: contain;
-    background-image: none;
+    margin-left: 33%;
+    margin-right: 33%;
+    align-self: center;
 }
 
 #functionalityButtons {
@@ -97,7 +97,6 @@ button {
 }
 
 #feedButton:hover, #playButton:hover, #drinkButton:hover {
-    border: blue solid 1px;
     background-color: rgba(255, 255, 255, 0.717);
     border: blue solid 2px;
 }
@@ -106,11 +105,13 @@ button {
     background-color: gray;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
     align-items: center;
+    align-self: center;
     padding: 10px;
     border: solid rgb(28, 51, 184) 3px;
     border-radius: 15px;
+    width: 250px;
+    max-width: 400px;
 }
 
 .state{
@@ -118,8 +119,10 @@ button {
 }
 
 #statusFlexWrapper p {
-    width: 40%;
+    width: 100px;
     box-sizing: border-box;
+    position: relative;
+    right: 15px;
     text-align: end;
     color: whitesmoke;
     font-family: 'Roboto', sans-serif;
@@ -127,8 +130,8 @@ button {
 
 .statusContainer {
     background-color: whitesmoke;
-    height: 29px;
     width: 60%;
+    height: 26px;
     box-sizing: border-box;
     border: rgb(28,51,184) solid 2px;
     border-radius: 5%;
@@ -142,7 +145,7 @@ button {
 #fedBar, #entertainedBar, #quenchedBar {
     width: 0%;
     max-width: 100%;
-    height: 23px;
+    height: 20px;
     margin-top: 1px;
     background-color: rgb(28, 51, 184);
 }
@@ -153,7 +156,8 @@ button {
     color: white;
     background-color: rgba(255, 0, 0, 0.871);
     width: 100px;
-    margin-left: 30%;
-    
+    margin-left: 33%;
+    margin-right: 33%;
+    min-width: 33%;
     border: rgb(28,51,184) solid 2px;
 }
