@@ -89,8 +89,8 @@ class Fox extends Pet {
 
  class Panda extends Pet {
 
-    happyImg = "url(./images/gifs/PandaHappy.gif";
-    sadImg = "url(./images/gifs/PandaSad.gif";
+    happyImg = "url(./images/gifs/pandaHappy.gif";
+    sadImg = "url(./images/gifs/pandaSad.gif";
     _playVal = 10;
     _quenchVal = 15;
     _feedVal = 5;
